@@ -17,6 +17,9 @@ export default function Home() {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, -100]);
   const y2 = useTransform(scrollY, [0, 300], [0, 80]);
+  const animateName1= useTransform(scrollY, [0, 900], [-150, 10]);
+  const animateName2= useTransform(scrollY, [0, 700], [ 100, 10]);
+
   const dataSkills = data.skills;
   const dataDesignSkills = data.designSkills;
 
@@ -29,7 +32,7 @@ export default function Home() {
 
   const leftRightAnimation = {
     visible: {
-      x: [0, -20, 3],
+      x: [0, -10, 10],
       transition: { delay: 2, yoyo: Infinity },
     },
   };
@@ -98,28 +101,30 @@ export default function Home() {
             className=" w-full h-full bg-cover relative"
           >
             <motion.div style={{ y: y2, x: 0 }}>
-              <div className="absolute hidden md:block">
+              <div className="absolute  hidden md:block">
                 <img src="/assets/bg-2.png" />
               </div>
             </motion.div>
 
-            <div className="w-full h-full grid place-content-center absolute md:grid-cols-2">
+            <div className="w-full h-full grid place-content-center absolute md:grid-cols-2 text-center">
               <div className="md:block grid place-content-center md:pr-12">
-                <motion.div variants={leftRightAnimation} animate='visible'>
-                <h1 className=" md:ml-auto text-8xl text-white w-fit">
-                  Welcome, to
-                </h1>
+                <motion.div variants={leftRightAnimation} animate="visible">
+                  <h1 className=" md:ml-auto md:text-8xl text-5xl text-white w-fit">
+                    Welcome, to
+                  </h1>
                 </motion.div>
               </div>
               <div className="md:text-left text-center md:pl-12">
-              <motion.div variants={leftRightAnimation} animate='visible'>
-                <h1 className=" text-8xl text-white w-fit">My Website</h1>
+                <motion.div variants={leftRightAnimation} animate="visible">
+                  <h1 className=" md:text-8xl text-7xl text-white w-fit">
+                    My Website
+                  </h1>
                 </motion.div>
               </div>
             </div>
 
-            <motion.div style={{ y: y1, x: 0 }} >
-              <div className="absolute w-[100vw] hidden md:block">
+            <motion.div style={{ y: y1, x: 0 }}>
+              <div className="absolute md:w-[100vw] hidden md:block">
                 <img src="/assets/bg-3.png" className="w-full" />
               </div>
             </motion.div>
@@ -129,7 +134,9 @@ export default function Home() {
         {/* introduction */}
         <div className=" w-full h-[100vh] overflow-hidden bg-[#2E0249]">
           <div className=" grid md:grid-cols-2 w-full h-full md:p-16 mt-12">
+          
             <div className=" relative">
+            <motion.div style={{ y: 0, x: animateName1 }}>
               <div className=" absolute w-full text-center text-white">
                 <p className="text-2xl font-bold text-yellow-300">
                   Hello, My Name is
@@ -138,14 +145,16 @@ export default function Home() {
                   PRIANDY <br /> DWI <br /> HANDIKA
                 </h1>
               </div>
-              <div className=" w-full overflow-hidden">
+              </motion.div>
+              <div className=" w-full">
                 <img
                   src="/assets/me.png"
                   className="mix-blend-multiply contrast-200 mx-auto md:h-[50em] md:absolute left-[-7] bottom-10"
                 />
               </div>
             </div>
-
+            
+            <motion.div style={{ y: 0, x: animateName2 }}>
             <div>
               <div className="w-full text-center text-white">
                 <p className="text-2xl font-bold">Im,</p>
@@ -169,11 +178,12 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            </motion.div>
           </div>
         </div>
 
         {/* skills section */}
-        <div className=" md:h-[100vh] w-full bg-[#2E0249] md:px-32 md:py-10 ">
+        <div className=" md:h-[100vh] w-full bg-[#2E0249] md:px-32 md:py-10 overflow-hidden">
           <div className="md:border w-full h-full rounded-lg">
             <Tab.Group>
               <div className=" grid grid-cols-12 h-full">
@@ -281,33 +291,38 @@ export default function Home() {
 
         {/* Qualification section */}
 
-        <div className=" h-[100vh] bg-[#2E0249] py-14 font-bold relative">
+        <div className=" h-[100vh] bg-[#2E0249] py-14 font-bold relative overflow-hidden md:px-0 px-20">
           <h1 className=" text-white text-5xl text-center">QUALIFICATION</h1>
           <p className=" text-yellow-300 text-lg text-center ">
             My Study Journey
           </p>
-          <div className="">
-            <div className="md:w-[50%]  m-auto mt-7 relative flex h-full">
-              <div className=" w-[50%]">
+
+          <div className=" w-full mt-10">
+            <div className="md:w-[50%] w-full  md:m-auto mt-7 relative flex h-full">
+              <div className=" md:w-[50%] w-full ">
                 <motion.div variants={upDownAnimation} animate="visible">
-                  <div className=" grid place-content-center rounded-lg text-2xl bg-white text-black border w-60 h-28 before:content-[''] before:w-8 before:h-8 before:bg-white before:absolute before:rotate-45 before:left-56 before:top-10 md:after:left-[20rem] after:left-[19rem] after:rounded-full after:top-9 after:w-10 after:h-10 after:absolute after:z-20 after:content-[''] after:bg-yellow-300 ">
+                  <div className=" grid place-content-center rounded-lg text-2xl bg-white text-black border w-full md:w-60 h-28 before:content-[''] before:w-8 before:h-8 before:bg-white md:before:absolute before:rotate-45 before:left-56 before:top-10 md:after:left-[20rem] after:left-[19rem] after:rounded-full after:top-9 md:after:w-10 md:after:h-10 md:after:absolute after:z-20 after:content-[''] after:bg-yellow-300 ">
                     SMAN 56 JakBar
                   </div>
                 </motion.div>
               </div>
               <div>
-                <div className="border-r-8 h-full"></div>
+                <div className="border-r-8 h-full hidden md:block rounded-t-full"></div>
               </div>
             </div>
 
-            <div className=" md:w-[50%]  m-auto relative flex">
-              <div className="w-[50%] ml-auto flex">
-                <div className=" mr-auto">
+            <div className=" md:w-[50%] w-full  md:m-auto relative flex my-10">
+              <div className="md:w-[50%] md:ml-auto flex w-full ">
+                <div className=" md:mr-auto hidden md:block">
                   <div className="border-l-8 h-full "></div>
                 </div>
-                <motion.div variants={leftRightAnimation} animate="visible">
-                  <div className="block">
-                    <div className="text-center grid place-content-center rounded-lg text-2xl bg-white text-black ml-auto border w-60 h-28 before:content-[''] before:w-8 before:h-8 before:bg-white before:absolute before:rotate-45 before:right-56 before:top-10 ">
+                <motion.div
+                  variants={leftRightAnimation}
+                  animate="visible"
+                  className="w-full"
+                >
+                  <div className="block w-full">
+                    <div className="text-center grid place-content-center rounded-lg text-2xl bg-white text-black ml-auto border w-full md:w-60 h-28 md:before:content-[''] before:w-8 before:h-8 md:before:bg-white before:absolute before:rotate-45 before:right-56 before:top-10 ">
                       PPKD JAKBAR
                     </div>
                   </div>
@@ -315,33 +330,49 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="md:w-[50%]  m-auto relative flex h-full">
-              <div className=" w-[50%]">
+            <div className="md:w-[50%] w-full  md:m-auto mt-7 relative flex h-full mb-10">
+              <div className=" md:w-[50%] w-full ">
                 <motion.div variants={upDownAnimation} animate="visible">
-                  <div className="text-center grid place-content-center rounded-lg text-2xl bg-white text-black border w-60 h-28 before:content-[''] before:w-8 before:h-8 before:bg-white before:absolute before:rotate-45 before:left-56 before:top-10 md:after:left-[20rem] after:left-[19rem] after:rounded-full after:top-9 after:w-10 after:h-10 after:absolute after:z-20 after:content-[''] after:bg-yellow-300 ">
-                    Esa Unggul University
+                  <div className=" grid place-content-center rounded-lg text-2xl bg-white text-black border w-full md:w-60 h-28 before:content-[''] before:w-8 before:h-8 before:bg-white md:before:absolute before:rotate-45 before:left-56 before:top-10 md:after:left-[20rem] after:left-[19rem] after:rounded-full after:top-9 md:after:w-10 md:after:h-10 md:after:absolute after:z-20 after:content-[''] after:bg-yellow-300 ">
+                    SMAN 56 JakBar
                   </div>
                 </motion.div>
               </div>
               <div>
-                <div className="border-r-8 h-full"></div>
+                <div className="border-r-8 h-full hidden md:block"></div>
               </div>
             </div>
 
-            <div className=" md:w-[50%]  m-auto relative flex">
-              <div className="w-[50%] ml-auto flex">
-                <div className=" mr-auto">
-                  <div className="border-l-8 h-full "></div>
+            <div className=" md:w-[50%] w-full  md:m-auto relative flex">
+              <div className="md:w-[50%] md:ml-auto flex w-full ">
+                <div className=" md:mr-auto hidden md:block">
+                  <div className="border-l-8 h-full rounded-b-full"></div>
                 </div>
-                <motion.div variants={leftRightAnimation} animate="visible">
-                  <div className="block">
-                    <div className="text-center grid place-content-center rounded-lg text-2xl bg-white text-black ml-auto border w-60 h-28 before:content-[''] before:w-8 before:h-8 before:bg-white before:absolute before:rotate-45 before:right-56 before:top-10 ">
-                    Alterra Academy x Kampus Merdeka
+                <motion.div
+                  variants={leftRightAnimation}
+                  animate="visible"
+                  className="w-full"
+                >
+                  <div className="block w-full">
+                    <div className="text-center grid place-content-center rounded-lg text-2xl bg-white text-black ml-auto border w-full md:w-60 h-28 before:content-[''] before:w-8 before:h-8 md:before:bg-white before:absolute before:rotate-45 before:right-56 before:top-10 ">
+                      PPKD JAKBAR
                     </div>
                   </div>
                 </motion.div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* projects section */}
+        <div className=" h-[100vh] bg-[#2E0249]">
+          <h1 className=" text-white text-5xl text-center font-bold">PROJECTS</h1>
+          <p className=" text-yellow-300 text-lg text-center font-bold">
+           The Web I Have Made
+          </p>
+
+          <div>
+            
           </div>
         </div>
       </main>
