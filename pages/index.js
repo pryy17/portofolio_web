@@ -8,6 +8,7 @@ import { useState } from "react";
 import { Tab } from "@headlessui/react";
 import Slider from "react-slick";
 import { data } from "../data/skills";
+import TabsProject from "../components/projects/TabsProject";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -17,8 +18,8 @@ export default function Home() {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, -100]);
   const y2 = useTransform(scrollY, [0, 300], [0, 80]);
-  const animateName1= useTransform(scrollY, [0, 900], [-150, 10]);
-  const animateName2= useTransform(scrollY, [0, 700], [ 100, 10]);
+  const animateName1 = useTransform(scrollY, [0, 900], [-150, 10]);
+  const animateName2 = useTransform(scrollY, [0, 700], [100, 10]);
 
   const dataSkills = data.skills;
   const dataDesignSkills = data.designSkills;
@@ -132,58 +133,57 @@ export default function Home() {
         </div>
 
         {/* introduction */}
-        <div className=" w-full h-[100vh] overflow-hidden bg-[#2E0249]">
-          <div className=" grid md:grid-cols-2 w-full h-full md:p-16 mt-12">
-          
+        <div className=" w-full h-[100vh] overflow-hidden bg-[#2E0249]" id="intro">
+          <div className=" grid md:grid-cols-2 w-full h-full md:p-16 mt-12 grid-cols-1">
             <div className=" relative">
-            <motion.div style={{ y: 0, x: animateName1 }}>
-              <div className=" absolute w-full text-center text-white">
-                <p className="text-2xl font-bold text-yellow-300">
-                  Hello, My Name is
-                </p>
-                <h1 className=" text-8xl font-bold ">
-                  PRIANDY <br /> DWI <br /> HANDIKA
-                </h1>
-              </div>
+              <motion.div style={{ y: 0, x: animateName1 }}>
+                <div className=" absolute w-full text-center text-white">
+                  <p className="text-2xl font-bold text-yellow-300">
+                    Hello, My Name is
+                  </p>
+                  <h1 className=" text-8xl font-bold ">
+                    PRIANDY <br /> DWI <br /> HANDIKA
+                  </h1>
+                </div>
               </motion.div>
               <div className=" w-full">
                 <img
                   src="/assets/me.png"
-                  className="mix-blend-multiply contrast-200 mx-auto md:h-[50em] md:absolute left-[-7] bottom-10"
+                  className="mix-blend-multiply contrast-200 mx-auto md:h-[50em] md:absolute left-[-7] bottom-10 hover:animate-pulse cursor-help"
                 />
               </div>
             </div>
-            
-            <motion.div style={{ y: 0, x: animateName2 }}>
-            <div>
-              <div className="w-full text-center text-white">
-                <p className="text-2xl font-bold">Im,</p>
-                <h1 className=" text-8xl font-bold ">
-                  <p className="text-yellow-300">FRONT-END</p> DEVELOPER.
-                </h1>
-                <p>
-                  I like to craft solid and scalable frontend products with
-                  great user experience
-                </p>
 
-                <div className=" grid grid-cols-2 mt-16 gap-8 px-8">
-                  <p className="text-justify">
-                    I can make your website responsive and I really like the
-                    design and implementation of a website
+            <motion.div style={{ y: 0, x: animateName2 }}>
+              <div>
+                <div className="w-full text-center text-white">
+                  <p className="text-2xl font-bold">Im,</p>
+                  <h1 className=" text-8xl font-bold ">
+                    <p className="text-yellow-300">FRONT-END</p> DEVELOPER.
+                  </h1>
+                  <p>
+                    I like to craft solid and scalable frontend products with
+                    great user experience
                   </p>
-                  <p className=" text-justify text-yellow-300">
-                    I'm a junior frontend website developer and I really like
-                    working in a team
-                  </p>
+
+                  <div className=" grid grid-cols-2 mt-16 gap-8 px-8">
+                    <p className="text-justify">
+                      I can make your website responsive and I really like the
+                      design and implementation of a website
+                    </p>
+                    <p className=" text-justify text-yellow-300">
+                      I'm a junior frontend website developer and I really like
+                      working in a team
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
             </motion.div>
           </div>
         </div>
 
         {/* skills section */}
-        <div className=" md:h-[100vh] w-full bg-[#2E0249] md:px-32 md:py-10 overflow-hidden">
+        <div className=" md:h-[100vh] w-full bg-[#2E0249] md:px-32 md:py-10 overflow-hidden ">
           <div className="md:border w-full h-full rounded-lg">
             <Tab.Group>
               <div className=" grid grid-cols-12 h-full">
@@ -323,7 +323,7 @@ export default function Home() {
                 >
                   <div className="block w-full">
                     <div className="text-center grid place-content-center rounded-lg text-2xl bg-white text-black ml-auto border w-full md:w-60 h-28 md:before:content-[''] before:w-8 before:h-8 md:before:bg-white before:absolute before:rotate-45 before:right-56 before:top-10 ">
-                      PPKD JAKBAR
+                      PPKD JAKBAR - Graphic Design
                     </div>
                   </div>
                 </motion.div>
@@ -333,8 +333,8 @@ export default function Home() {
             <div className="md:w-[50%] w-full  md:m-auto mt-7 relative flex h-full mb-10">
               <div className=" md:w-[50%] w-full ">
                 <motion.div variants={upDownAnimation} animate="visible">
-                  <div className=" grid place-content-center rounded-lg text-2xl bg-white text-black border w-full md:w-60 h-28 before:content-[''] before:w-8 before:h-8 before:bg-white md:before:absolute before:rotate-45 before:left-56 before:top-10 md:after:left-[20rem] after:left-[19rem] after:rounded-full after:top-9 md:after:w-10 md:after:h-10 md:after:absolute after:z-20 after:content-[''] after:bg-yellow-300 ">
-                    SMAN 56 JakBar
+                  <div className=" text-center grid place-content-center rounded-lg text-2xl bg-white text-black border w-full md:w-60 h-28 before:content-[''] before:w-8 before:h-8 before:bg-white md:before:absolute before:rotate-45 before:left-56 before:top-10 md:after:left-[20rem] after:left-[19rem] after:rounded-full after:top-9 md:after:w-10 md:after:h-10 md:after:absolute after:z-20 after:content-[''] after:bg-yellow-300 ">
+                    ALTA X kampus merdeka
                   </div>
                 </motion.div>
               </div>
@@ -355,7 +355,7 @@ export default function Home() {
                 >
                   <div className="block w-full">
                     <div className="text-center grid place-content-center rounded-lg text-2xl bg-white text-black ml-auto border w-full md:w-60 h-28 before:content-[''] before:w-8 before:h-8 md:before:bg-white before:absolute before:rotate-45 before:right-56 before:top-10 ">
-                      PPKD JAKBAR
+                      Esa Unggul University
                     </div>
                   </div>
                 </motion.div>
@@ -366,14 +366,20 @@ export default function Home() {
 
         {/* projects section */}
         <div className=" h-[100vh] bg-[#2E0249]">
-          <h1 className=" text-white text-5xl text-center font-bold">PROJECTS</h1>
+          <h1 className=" text-white text-5xl text-center font-bold">
+            PROJECTS
+          </h1>
           <p className=" text-yellow-300 text-lg text-center font-bold">
-           The Web I Have Made
+            The Web I Have Made
           </p>
-
-          <div>
-            
+          
+          <div className="relative">
+          <TabsProject sliderSettings={settings} />
           </div>
+        </div>
+
+        <div>
+          kasks
         </div>
       </main>
     </div>
