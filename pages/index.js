@@ -9,6 +9,7 @@ import { Tab } from "@headlessui/react";
 import Slider from "react-slick";
 import { data } from "../data/skills";
 import TabsProject from "../components/projects/TabsProject";
+import FormEmail from "../components/formContact/FormEmail";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -133,7 +134,7 @@ export default function Home() {
         </div>
 
         {/* introduction */}
-        <div className=" w-full h-[100vh] overflow-hidden bg-[#2E0249]" id="intro">
+        <div className=" w-full md:h-[40em] overflow-hidden bg-[#2E0249]" id="intro">
           <div className=" grid md:grid-cols-2 w-full h-full md:p-16 mt-12 grid-cols-1">
             <div className=" relative">
               <motion.div style={{ y: 0, x: animateName1 }}>
@@ -183,7 +184,7 @@ export default function Home() {
         </div>
 
         {/* skills section */}
-        <div className=" md:h-[100vh] w-full bg-[#2E0249] md:px-32 md:py-10 overflow-hidden ">
+        <div className=" md:h-[40em] w-full bg-[#2E0249] md:px-32 md:py-10 overflow-hidden ">
           <div className="md:border w-full h-full rounded-lg">
             <Tab.Group>
               <div className=" grid grid-cols-12 h-full">
@@ -291,7 +292,7 @@ export default function Home() {
 
         {/* Qualification section */}
 
-        <div className=" h-[100vh] bg-[#2E0249] py-14 font-bold relative overflow-hidden md:px-0 px-20">
+        <div className=" h-fit bg-[#2E0249] py-14 font-bold relative overflow-hidden md:px-0 px-20">
           <h1 className=" text-white text-5xl text-center">QUALIFICATION</h1>
           <p className=" text-yellow-300 text-lg text-center ">
             My Study Journey
@@ -377,9 +378,10 @@ export default function Home() {
           <TabsProject sliderSettings={settings} />
           </div>
         </div>
-
+        
+        {/* contact section */}
         <div>
-          kasks
+          <FormEmail />
         </div>
       </main>
     </div>
