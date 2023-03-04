@@ -200,7 +200,7 @@ export default function Home() {
                     <h1 className=" text-5xl text-center text-yellow-500">
                       FRONTEND
                     </h1>
-                    <div className=" mt-[12%]">
+                    <div className="md:mt-[5em]">
                       <Slider {...settings}>
                         {dataSkills?.slice(0, 6).map((item, index) => (
                           <div key={index}>
@@ -299,10 +299,10 @@ export default function Home() {
           </p>
 
           <div className=" w-full mt-10">
-            <div className="md:w-[50%] w-full  md:m-auto mt-7 relative flex h-full">
+            <div className="md:w-[40%] w-full  md:m-auto mt-7 relative flex h-full">
               <div className=" md:w-[50%] w-full ">
                 <motion.div variants={upDownAnimation} animate="visible">
-                  <div className=" grid place-content-center rounded-lg text-2xl bg-white text-black border w-full md:w-60 h-28 before:content-[''] before:w-8 before:h-8 before:bg-white md:before:absolute before:rotate-45 before:left-56 before:top-10 md:after:left-[20rem] after:left-[19rem] after:rounded-full after:top-9 md:after:w-10 md:after:h-10 md:after:absolute after:z-20 after:content-[''] after:bg-yellow-300 ">
+                  <div className=" grid place-content-center rounded-lg text-2xl bg-white text-black border w-full md:w-60 h-28 before:w-8 before:h-8 before:bg-white md:before:absolute before:rotate-45 before:left-56 before:top-10 md:after:left-[20rem] after:left-[19rem] after:rounded-full after:top-9 md:after:w-10 md:after:h-10 md:after:absolute after:z-20 after:content-['']">
                     SMAN 56 JakBar
                   </div>
                 </motion.div>
@@ -312,7 +312,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className=" md:w-[50%] w-full  md:m-auto relative flex my-10">
+            <div className=" md:w-[40%] w-full  md:m-auto relative flex my-10">
               <div className="md:w-[50%] md:ml-auto flex w-full ">
                 <div className=" md:mr-auto hidden md:block">
                   <div className="border-l-8 h-full "></div>
@@ -331,10 +331,10 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="md:w-[50%] w-full  md:m-auto mt-7 relative flex h-full mb-10">
+            <div className="md:w-[40%] w-full  md:m-auto mt-7 relative flex h-full mb-10">
               <div className=" md:w-[50%] w-full ">
                 <motion.div variants={upDownAnimation} animate="visible">
-                  <div className=" text-center grid place-content-center rounded-lg text-2xl bg-white text-black border w-full md:w-60 h-28 before:content-[''] before:w-8 before:h-8 before:bg-white md:before:absolute before:rotate-45 before:left-56 before:top-10 md:after:left-[20rem] after:left-[19rem] after:rounded-full after:top-9 md:after:w-10 md:after:h-10 md:after:absolute after:z-20 after:content-[''] after:bg-yellow-300 ">
+                  <div className=" text-center grid place-content-center rounded-lg text-2xl bg-white text-black border w-full md:w-60 h-28 before:content-[''] before:w-8 before:h-8 before:bg-white md:before:absolute before:rotate-45 before:left-56 before:top-10 md:after:left-[20rem] after:left-[19rem] after:rounded-full after:top-9 md:after:w-10 md:after:h-10 md:after:absolute after:z-20 after:content-['']">
                     ALTA X kampus merdeka
                   </div>
                 </motion.div>
@@ -344,7 +344,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className=" md:w-[50%] w-full  md:m-auto relative flex">
+            <div className=" md:w-[40%] w-full  md:m-auto relative flex">
               <div className="md:w-[50%] md:ml-auto flex w-full ">
                 <div className=" md:mr-auto hidden md:block">
                   <div className="border-l-8 h-full rounded-b-full"></div>

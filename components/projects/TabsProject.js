@@ -46,17 +46,17 @@ export default function TabsProject({ sliderSettings }) {
                 </motion.button>
                 <div className="grid md:grid-cols-12 grid-cols-1">
                   <div className="w-full h-full md:col-span-8">
-                    <div className=" h-full max-h-[20em] overflow-hidden rounded-lg">
+                    <div className=" h-fit max-h-[20em] rounded-lg">
                       <img
                         src={`/assets/${item.img}`}
-                        className="object-bottom w-full"
+                        className="object-bottom w-full h-full"
                       />
                     </div>
-                    <div className=" w-full my-10 h-fit">
+                    <div className=" w-full my-10 h-fit md:mt-[18em]">
                       <Slider {...sliderSettings}>
                         {item.stack.map((item, index) => (
                           <div key={index}>
-                            <div className=" w-28 h-28 overflow-hidden">
+                            <div className=" w-28 h-28">
                               <img src={item.image} />
                             </div>
                           </div>
