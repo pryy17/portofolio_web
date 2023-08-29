@@ -69,10 +69,21 @@ export default function TabsProject({ sliderSettings }) {
                       {item.name}
                     </h1>
                     <p className=" mt-4 text-justify">{item.desc}</p>
-                    <div className=" w-fit h-10 bg-yellow-300 rounded-md px-8 mt-4 mr-auto cursor-pointer text-black font-bold hover:animate-bounce hover:bg-orange-400 hover:text-white">
+                    <div className="flex items-center content-center py-5">
                       <a href={item.link} target="_blank" rel="noreferrer">
-                        <button className="w-full h-full">VISIT</button>
+                        <button className="bg-yellow-300 rounded-md px-8 mr-auto cursor-pointer text-black font-bold hover:animate-bounce hover:bg-orange-400 hover:text-white">
+                          VISIT
+                        </button>
                       </a>
+                      <div className="ml-5">
+                        <a target="_blank" href={item.github} rel="noreferrer">
+                          {" "}
+                          <img
+                            className="w-10 h-10 cursor-pointer"
+                            src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                          />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
