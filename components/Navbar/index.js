@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-scroll";
 
-export default function navbar() {
+export default function Navbar() {
   const [scrollDirection, setScrollDirection] = useState(true); // Default: scroll ke atas
   const targetRef = useRef(null);
 
