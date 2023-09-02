@@ -11,7 +11,7 @@ import { data } from "../data/skills";
 import TabsProject from "../components/Projects";
 import FormEmail from "../components/FormContact";
 import Navbar from "../components/Navbar";
-import { Element, Link } from "react-scroll";
+import { Element, Link, scroller } from "react-scroll";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -23,9 +23,9 @@ export default function Home() {
   const y2 = useTransform(scrollY, [0, 300], [0, 80]);
   const animateName1 = useTransform(scrollY, [0, 900], [-150, 10]);
   const animateName2 = useTransform(scrollY, [0, 700], [100, 10]);
-
   const dataSkills = data.skills;
   const dataDesignSkills = data.designSkills;
+  const [isScroll, setIsScroll] = useState(false);
 
   const upDownAnimation = {
     visible: {
@@ -136,281 +136,288 @@ export default function Home() {
                   <img src="/assets/bg-3.png" className="w-full" />
                 </div>
               </motion.div>
-              <Link
-                activeClass="active"
-                className="cursor-pointer"
-                to="about"
-                spy={true}
-                smooth={true}
-                duration={2000}
+
+              <div
+                className="w-14 h-14 z-50 absolute bottom-32 right-[50%] animate-bounce cursor-pointer"
+                onClick={() => {
+                  setTimeout(function () {
+                    scroller.scrollTo("about", {
+                      duration: 2500,
+                      smooth: true,
+                      spy: true,
+                    });
+                  }, 100);
+                  setIsScroll(true);
+                }}
               >
-                <div className="w-14 h-14 z-50 absolute bottom-32 right-[50%] animate-bounce cursor-pointer">
-                  <img src="/assets/downicon.png" className="w-full" />
-                </div>
-              </Link>
+                <img src="/assets/downicon.png" className="w-full" />
+              </div>
             </div>
           </div>
         </Element>
+        <div className={`${isScroll ? "" : "hidden"}`}>
+          {/* introduction */}
+          <Element name="about">
+            <div
+              className=" w-full md:h-[40em] overflow-hidden bg-[#2E0249]"
+              id="intro"
+            >
+              <div className=" grid md:grid-cols-2 w-full h-full md:p-16 mt-12 grid-cols-1">
+                <div className=" relative">
+                  <motion.div style={{ y: 0, x: animateName1 }}>
+                    <div className=" absolute w-full text-center text-white">
+                      <p className="text-2xl font-bold text-yellow-300">
+                        Hello, My Name is
+                      </p>
+                      <h1 className=" text-8xl font-bold ">
+                        PRIANDY <br /> DWI <br /> HANDIKA
+                      </h1>
+                    </div>
+                  </motion.div>
+                  <div className=" w-full">
+                    <img
+                      src="/assets/me.png"
+                      className="mix-blend-multiply contrast-200 mx-auto md:h-[50em] md:absolute left-[-7] bottom-10 hover:animate-pulse cursor-help"
+                    />
+                  </div>
+                </div>
 
-        {/* introduction */}
-        <Element name="about">
-          <div
-            className=" w-full md:h-[40em] overflow-hidden bg-[#2E0249]"
-            id="intro"
-          >
-            <div className=" grid md:grid-cols-2 w-full h-full md:p-16 mt-12 grid-cols-1">
-              <div className=" relative">
-                <motion.div style={{ y: 0, x: animateName1 }}>
-                  <div className=" absolute w-full text-center text-white">
-                    <p className="text-2xl font-bold text-yellow-300">
-                      Hello, My Name is
-                    </p>
-                    <h1 className=" text-8xl font-bold ">
-                      PRIANDY <br /> DWI <br /> HANDIKA
-                    </h1>
+                <motion.div style={{ y: 0, x: animateName2 }}>
+                  <div>
+                    <div className="w-full text-center text-white">
+                      <p className="text-2xl font-bold">Im,</p>
+                      <h1 className=" text-8xl font-bold ">
+                        <p className="text-yellow-300">FRONT-END</p> DEVELOPER.
+                      </h1>
+                      <p>
+                        I like to craft solid and scalable frontend products
+                        with great user experience
+                      </p>
+
+                      <div className=" grid grid-cols-2 mt-16 gap-8 px-8">
+                        <p className="text-justify">
+                          I can make your website responsive and I really like
+                          the design and implementation of a website
+                        </p>
+                        <p className=" text-justify text-yellow-300">
+                          I'm a junior frontend website developer and I really
+                          like working in a team
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
-                <div className=" w-full">
-                  <img
-                    src="/assets/me.png"
-                    className="mix-blend-multiply contrast-200 mx-auto md:h-[50em] md:absolute left-[-7] bottom-10 hover:animate-pulse cursor-help"
-                  />
-                </div>
               </div>
-
-              <motion.div style={{ y: 0, x: animateName2 }}>
-                <div>
-                  <div className="w-full text-center text-white">
-                    <p className="text-2xl font-bold">Im,</p>
-                    <h1 className=" text-8xl font-bold ">
-                      <p className="text-yellow-300">FRONT-END</p> DEVELOPER.
-                    </h1>
-                    <p>
-                      I like to craft solid and scalable frontend products with
-                      great user experience
-                    </p>
-
-                    <div className=" grid grid-cols-2 mt-16 gap-8 px-8">
-                      <p className="text-justify">
-                        I can make your website responsive and I really like the
-                        design and implementation of a website
-                      </p>
-                      <p className=" text-justify text-yellow-300">
-                        I'm a junior frontend website developer and I really
-                        like working in a team
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
             </div>
-          </div>
-        </Element>
+          </Element>
 
-        {/* skills section */}
-        <Element name="skill">
-          <div className=" md:h-[40em] w-full bg-[#2E0249] md:px-32 md:py-10 overflow-hidden ">
-            <div className="md:border w-full h-full rounded-lg">
-              <Tab.Group>
-                <div className=" grid grid-cols-12 h-full">
-                  <div className=" col-span-1 h-full w-full grid place-content-center">
-                    <h1 className=" m-auto text-3xl text-white font-bold -rotate-90">
-                      SKILLS
-                    </h1>
-                  </div>
-
-                  <Tab.Panels className={"col-span-10 px-20"}>
-                    {/* panel frontend */}
-                    <Tab.Panel className={"w-full h-full text-white pt-4"}>
-                      <h1 className=" text-5xl text-center text-yellow-500">
-                        FRONTEND
+          {/* skills section */}
+          <Element name="skill">
+            <div className=" md:h-[40em] w-full bg-[#2E0249] md:px-32 md:py-10 overflow-hidden ">
+              <div className="md:border w-full h-full rounded-lg">
+                <Tab.Group>
+                  <div className=" grid grid-cols-12 h-full">
+                    <div className=" col-span-1 h-full w-full grid place-content-center">
+                      <h1 className=" m-auto text-3xl text-white font-bold -rotate-90">
+                        SKILLS
                       </h1>
-                      <div className="md:mt-[5em]">
-                        <Slider {...settings}>
-                          {dataSkills?.slice(0, 6).map((item, index) => (
-                            <div key={index}>
-                              <div className=" w-28 h-28 overflow-hidden">
-                                <img src={item.image} />
-                              </div>
-                            </div>
-                          ))}
-                        </Slider>
-
-                        <Slider {...settings} className="mt-10">
-                          {dataSkills?.slice(6).map((item, index) => (
-                            <div key={index}>
-                              <div className=" w-28 h-28 overflow-hidden">
-                                <img src={item.image} />
-                              </div>
-                            </div>
-                          ))}
-                        </Slider>
-                      </div>
-                    </Tab.Panel>
-
-                    {/* panel Design */}
-                    <Tab.Panel>
-                      <h1 className=" text-5xl text-center text-yellow-500 mt-5">
-                        DESIGN
-                      </h1>
-                      <div className=" mt-[20%]">
-                        <Slider {...settings}>
-                          {dataDesignSkills?.map((item, index) => (
-                            <div key={index}>
-                              <div className=" w-28 h-28 overflow-hidden">
-                                <img src={item.image} />
-                              </div>
-                            </div>
-                          ))}
-                        </Slider>
-                      </div>
-                    </Tab.Panel>
-                  </Tab.Panels>
-
-                  <Tab.List
-                    className={
-                      "col-span-1 w-full h-full grid place-content-center"
-                    }
-                  >
-                    <div className=" grid grid-rows-3 h-[20em] min-h-[10em]  gap-3 ">
-                      <Tab
-                        className={({ selected }) =>
-                          classNames(
-                            "w-1 h-full rounded-lg bg-yellow",
-                            "ring-white ring-opacity-60 ",
-                            selected
-                              ? "bg-white shadow bg-yellow-500"
-                              : "text-blue-100 bg-yellow-100 hover:bg-white/[0.12] hover:text-white"
-                          )
-                        }
-                      ></Tab>
-
-                      <Tab
-                        className={({ selected }) =>
-                          classNames(
-                            "w-1 h-full rounded-lg bg-yellow",
-                            "ring-white ring-opacity-60",
-                            selected
-                              ? "bg-white shadow bg-yellow-500"
-                              : "text-blue-100 bg-yellow-100 hover:bg-white/[0.12] hover:text-white"
-                          )
-                        }
-                      ></Tab>
-
-                      <Tab
-                        className={({ selected }) =>
-                          classNames(
-                            "w-1 h-full rounded-lg bg-yellow",
-                            "ring-white ring-opacity-60 ",
-                            selected
-                              ? "bg-white shadow bg-yellow-500"
-                              : "text-blue-100 bg-yellow-100 hover:bg-white/[0.12] hover:text-white"
-                          )
-                        }
-                      ></Tab>
                     </div>
-                  </Tab.List>
-                </div>
-              </Tab.Group>
-            </div>
-          </div>
-        </Element>
-        {/* Qualification section */}
-        <Element name="qualification">
-          <div className=" h-fit bg-[#2E0249] py-14 font-bold relative overflow-hidden md:px-0 px-20">
-            <h1 className=" text-white text-5xl text-center">QUALIFICATION</h1>
-            <p className=" text-yellow-300 text-lg text-center ">
-              My Study Journey
-            </p>
 
-            <div className=" w-full mt-10">
-              <div className="md:w-[40%] w-full  md:m-auto mt-7 relative flex h-full">
-                <div className=" md:w-[50%] w-full ">
-                  <motion.div variants={upDownAnimation} animate="visible">
-                    <div className=" grid place-content-center rounded-lg text-2xl bg-white text-black border w-full md:w-60 h-28 before:w-8 before:h-8 before:bg-white md:before:absolute before:rotate-45 before:left-56 before:top-10 md:after:left-[20rem] after:left-[19rem] after:rounded-full after:top-9 md:after:w-10 md:after:h-10 md:after:absolute after:z-20 after:content-['']">
-                      SMAN 56 JakBar
-                    </div>
-                  </motion.div>
-                </div>
-                <div>
-                  <div className="border-r-8 h-full hidden md:block rounded-t-full"></div>
-                </div>
-              </div>
+                    <Tab.Panels className={"col-span-10 px-20"}>
+                      {/* panel frontend */}
+                      <Tab.Panel className={"w-full h-full text-white pt-4"}>
+                        <h1 className=" text-5xl text-center text-yellow-500">
+                          FRONTEND
+                        </h1>
+                        <div className="md:mt-[5em]">
+                          <Slider {...settings}>
+                            {dataSkills?.slice(0, 6).map((item, index) => (
+                              <div key={index}>
+                                <div className=" w-28 h-28 overflow-hidden">
+                                  <img src={item.image} />
+                                </div>
+                              </div>
+                            ))}
+                          </Slider>
 
-              <div className=" md:w-[40%] w-full  md:m-auto relative flex my-10">
-                <div className="md:w-[50%] md:ml-auto flex w-full ">
-                  <div className=" md:mr-auto hidden md:block">
-                    <div className="border-l-8 h-full "></div>
+                          <Slider {...settings} className="mt-10">
+                            {dataSkills?.slice(6).map((item, index) => (
+                              <div key={index}>
+                                <div className=" w-28 h-28 overflow-hidden">
+                                  <img src={item.image} />
+                                </div>
+                              </div>
+                            ))}
+                          </Slider>
+                        </div>
+                      </Tab.Panel>
+
+                      {/* panel Design */}
+                      <Tab.Panel>
+                        <h1 className=" text-5xl text-center text-yellow-500 mt-5">
+                          DESIGN
+                        </h1>
+                        <div className=" mt-[20%]">
+                          <Slider {...settings}>
+                            {dataDesignSkills?.map((item, index) => (
+                              <div key={index}>
+                                <div className=" w-28 h-28 overflow-hidden">
+                                  <img src={item.image} />
+                                </div>
+                              </div>
+                            ))}
+                          </Slider>
+                        </div>
+                      </Tab.Panel>
+                    </Tab.Panels>
+
+                    <Tab.List
+                      className={
+                        "col-span-1 w-full h-full grid place-content-center"
+                      }
+                    >
+                      <div className=" grid grid-rows-3 h-[20em] min-h-[10em]  gap-3 ">
+                        <Tab
+                          className={({ selected }) =>
+                            classNames(
+                              "w-1 h-full rounded-lg bg-yellow",
+                              "ring-white ring-opacity-60 ",
+                              selected
+                                ? "bg-white shadow bg-yellow-500"
+                                : "text-blue-100 bg-yellow-100 hover:bg-white/[0.12] hover:text-white"
+                            )
+                          }
+                        ></Tab>
+
+                        <Tab
+                          className={({ selected }) =>
+                            classNames(
+                              "w-1 h-full rounded-lg bg-yellow",
+                              "ring-white ring-opacity-60",
+                              selected
+                                ? "bg-white shadow bg-yellow-500"
+                                : "text-blue-100 bg-yellow-100 hover:bg-white/[0.12] hover:text-white"
+                            )
+                          }
+                        ></Tab>
+
+                        <Tab
+                          className={({ selected }) =>
+                            classNames(
+                              "w-1 h-full rounded-lg bg-yellow",
+                              "ring-white ring-opacity-60 ",
+                              selected
+                                ? "bg-white shadow bg-yellow-500"
+                                : "text-blue-100 bg-yellow-100 hover:bg-white/[0.12] hover:text-white"
+                            )
+                          }
+                        ></Tab>
+                      </div>
+                    </Tab.List>
                   </div>
-                  <motion.div
-                    variants={leftRightAnimation}
-                    animate="visible"
-                    className="w-full"
-                  >
-                    <div className="block w-full">
-                      <div className="text-center grid place-content-center rounded-lg text-2xl bg-white text-black ml-auto border w-full md:w-60 h-28 md:before:content-[''] before:w-8 before:h-8 md:before:bg-white before:absolute before:rotate-45 before:right-56 before:top-10 ">
-                        PPKD JAKBAR - Graphic Design
+                </Tab.Group>
+              </div>
+            </div>
+          </Element>
+          {/* Qualification section */}
+          <Element name="qualification">
+            <div className=" h-fit bg-[#2E0249] py-14 font-bold relative overflow-hidden md:px-0 px-20">
+              <h1 className=" text-white text-5xl text-center">
+                QUALIFICATION
+              </h1>
+              <p className=" text-yellow-300 text-lg text-center ">
+                My Study Journey
+              </p>
+
+              <div className=" w-full mt-10">
+                <div className="md:w-[40%] w-full  md:m-auto mt-7 relative flex h-full">
+                  <div className=" md:w-[50%] w-full ">
+                    <motion.div variants={upDownAnimation} animate="visible">
+                      <div className=" grid place-content-center rounded-lg text-2xl bg-white text-black border w-full md:w-60 h-28 before:w-8 before:h-8 before:bg-white md:before:absolute before:rotate-45 before:left-56 before:top-10 md:after:left-[20rem] after:left-[19rem] after:rounded-full after:top-9 md:after:w-10 md:after:h-10 md:after:absolute after:z-20 after:content-['']">
+                        SMAN 56 JakBar
                       </div>
-                    </div>
-                  </motion.div>
-                </div>
-              </div>
-
-              <div className="md:w-[40%] w-full  md:m-auto mt-7 relative flex h-full mb-10">
-                <div className=" md:w-[50%] w-full ">
-                  <motion.div variants={upDownAnimation} animate="visible">
-                    <div className=" text-center grid place-content-center rounded-lg text-2xl bg-white text-black border w-full md:w-60 h-28 before:content-[''] before:w-8 before:h-8 before:bg-white md:before:absolute before:rotate-45 before:left-56 before:top-10 md:after:left-[20rem] after:left-[19rem] after:rounded-full after:top-9 md:after:w-10 md:after:h-10 md:after:absolute after:z-20 after:content-['']">
-                      ALTA X kampus merdeka
-                    </div>
-                  </motion.div>
-                </div>
-                <div>
-                  <div className="border-r-8 h-full hidden md:block"></div>
-                </div>
-              </div>
-
-              <div className=" md:w-[40%] w-full  md:m-auto relative flex">
-                <div className="md:w-[50%] md:ml-auto flex w-full ">
-                  <div className=" md:mr-auto hidden md:block">
-                    <div className="border-l-8 h-full rounded-b-full"></div>
+                    </motion.div>
                   </div>
-                  <motion.div
-                    variants={leftRightAnimation}
-                    animate="visible"
-                    className="w-full"
-                  >
-                    <div className="block w-full">
-                      <div className="text-center grid place-content-center rounded-lg text-2xl bg-white text-black ml-auto border w-full md:w-60 h-28 before:content-[''] before:w-8 before:h-8 md:before:bg-white before:absolute before:rotate-45 before:right-56 before:top-10 ">
-                        Esa Unggul University
-                      </div>
+                  <div>
+                    <div className="border-r-8 h-full hidden md:block rounded-t-full"></div>
+                  </div>
+                </div>
+
+                <div className=" md:w-[40%] w-full  md:m-auto relative flex my-10">
+                  <div className="md:w-[50%] md:ml-auto flex w-full ">
+                    <div className=" md:mr-auto hidden md:block">
+                      <div className="border-l-8 h-full "></div>
                     </div>
-                  </motion.div>
+                    <motion.div
+                      variants={leftRightAnimation}
+                      animate="visible"
+                      className="w-full"
+                    >
+                      <div className="block w-full">
+                        <div className="text-center grid place-content-center rounded-lg text-2xl bg-white text-black ml-auto border w-full md:w-60 h-28 md:before:content-[''] before:w-8 before:h-8 md:before:bg-white before:absolute before:rotate-45 before:right-56 before:top-10 ">
+                          PPKD JAKBAR - Graphic Design
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
+
+                <div className="md:w-[40%] w-full  md:m-auto mt-7 relative flex h-full mb-10">
+                  <div className=" md:w-[50%] w-full ">
+                    <motion.div variants={upDownAnimation} animate="visible">
+                      <div className=" text-center grid place-content-center rounded-lg text-2xl bg-white text-black border w-full md:w-60 h-28 before:content-[''] before:w-8 before:h-8 before:bg-white md:before:absolute before:rotate-45 before:left-56 before:top-10 md:after:left-[20rem] after:left-[19rem] after:rounded-full after:top-9 md:after:w-10 md:after:h-10 md:after:absolute after:z-20 after:content-['']">
+                        ALTA X kampus merdeka
+                      </div>
+                    </motion.div>
+                  </div>
+                  <div>
+                    <div className="border-r-8 h-full hidden md:block"></div>
+                  </div>
+                </div>
+
+                <div className=" md:w-[40%] w-full  md:m-auto relative flex">
+                  <div className="md:w-[50%] md:ml-auto flex w-full ">
+                    <div className=" md:mr-auto hidden md:block">
+                      <div className="border-l-8 h-full rounded-b-full"></div>
+                    </div>
+                    <motion.div
+                      variants={leftRightAnimation}
+                      animate="visible"
+                      className="w-full"
+                    >
+                      <div className="block w-full">
+                        <div className="text-center grid place-content-center rounded-lg text-2xl bg-white text-black ml-auto border w-full md:w-60 h-28 before:content-[''] before:w-8 before:h-8 md:before:bg-white before:absolute before:rotate-45 before:right-56 before:top-10 ">
+                          Esa Unggul University
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </Element>
-        {/* projects section */}
-        <Element name="project">
-          <div className=" h-[100vh] bg-[#2E0249]">
-            <h1 className=" text-white text-5xl text-center font-bold">
-              PROJECTS
-            </h1>
-            <p className=" text-yellow-300 text-lg text-center font-bold">
-              The Web I Have Made
-            </p>
+          </Element>
+          {/* projects section */}
+          <Element name="project">
+            <div className=" h-[100vh] bg-[#2E0249]">
+              <h1 className=" text-white text-5xl text-center font-bold">
+                PROJECTS
+              </h1>
+              <p className=" text-yellow-300 text-lg text-center font-bold">
+                The Web I Have Made
+              </p>
 
-            <div className="relative">
-              <TabsProject sliderSettings={settings} />
+              <div className="relative">
+                <TabsProject sliderSettings={settings} />
+              </div>
             </div>
-          </div>
-        </Element>
-        {/* contact section */}
-        <Element name="contact">
-          <div>
-            <FormEmail />
-          </div>
-        </Element>
+          </Element>
+          {/* contact section */}
+          <Element name="contact">
+            <div>
+              <FormEmail />
+            </div>
+          </Element>
+        </div>
       </main>
     </div>
   );
