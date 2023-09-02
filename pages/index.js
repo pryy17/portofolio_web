@@ -8,8 +8,8 @@ import { useState } from "react";
 import { Tab } from "@headlessui/react";
 import Slider from "react-slick";
 import { data } from "../data/skills";
-import TabsProject from "../components/Projects/TabsProject";
-import FormEmail from "../components/FormContact/FormEmail";
+import TabsProject from "../components/Projects";
+import FormEmail from "../components/FormContact";
 import Navbar from "../components/Navbar";
 import { Element, Link } from "react-scroll";
 
