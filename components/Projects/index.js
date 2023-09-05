@@ -12,7 +12,7 @@ export default function TabsProject({ sliderSettings }) {
   let showProject = projects.filter((item) => item.id == selectedId);
 
   return (
-    <div className="w-full justify-center mt-10 h-full">
+    <div className="w-full justify-center mt-10 h-full z-40">
       <div className="w-full align-center gap-5 grid px-20 skew-y-3">
         {projects?.map((item) => (
           <motion.div

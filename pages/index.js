@@ -99,7 +99,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <div>
+        <div className="hidden sm:block">
           <Navbar />
         </div>
         <Element name="home">
@@ -108,8 +108,11 @@ export default function Home() {
               style={{ backgroundImage: "url('/assets/background4.png')" }}
               className=" w-full h-full bg-cover relative"
             >
-              <motion.div style={{ y: y2, x: 0 }}>
-                <div className="absolute  hidden md:block">
+              <motion.div
+                style={{ y: y2, x: 0 }}
+                className="w-100 flex justify-center"
+              >
+                <div className="absolute w-[60em] sm:w-fit md:block translate-y-48 sm:translate-y-0">
                   <img src="/assets/bg-2.png" />
                 </div>
               </motion.div>
@@ -131,14 +134,17 @@ export default function Home() {
                 </div>
               </div>
 
-              <motion.div style={{ y: y1, x: 0 }}>
-                <div className="absolute md:w-[100vw] hidden md:block">
+              <motion.div
+                style={{ y: y1, x: 0 }}
+                className="w-100 flex justify-center"
+              >
+                <div className="absolute md:w-[100vw]  w-[60em] sm:w-fit  md:block translate-y-48 sm:translate-y-0">
                   <img src="/assets/bg-3.png" className="w-full" />
                 </div>
               </motion.div>
 
               <div
-                className="w-14 h-14 z-50 absolute bottom-32 right-[50%] animate-bounce cursor-pointer"
+                className="flex justify-center"
                 onClick={() => {
                   setTimeout(function () {
                     scroller.scrollTo("about", {
@@ -150,7 +156,10 @@ export default function Home() {
                   setIsScroll(true);
                 }}
               >
-                <img src="/assets/downicon.png" className="w-full" />
+                <img
+                  src="/assets/downicon.png"
+                  className="w-14 h-14 z-50 absolute bottom-32 animate-bounce cursor-pointer"
+                />
               </div>
             </div>
           </div>
@@ -169,7 +178,7 @@ export default function Home() {
                       <p className="text-2xl font-bold text-yellow-300">
                         Hello, My Name is
                       </p>
-                      <h1 className=" text-8xl font-bold ">
+                      <h1 className=" text-7xl sm:text-8xl font-bold translate-x-4 sm:translate-x-0 ">
                         PRIANDY <br /> DWI <br /> HANDIKA
                       </h1>
                     </div>
@@ -186,10 +195,10 @@ export default function Home() {
                   <div>
                     <div className="w-full text-center text-white">
                       <p className="text-2xl font-bold">Im,</p>
-                      <h1 className=" text-8xl font-bold ">
+                      <h1 className=" text-6xl sm:text-8xl font-bold -translate-x-2 sm:translate-x-0">
                         <p className="text-yellow-300">FRONT-END</p> DEVELOPER.
                       </h1>
-                      <p>
+                      <p className="-translate-x-2 sm:translate-x-0">
                         I like to craft solid and scalable frontend products
                         with great user experience
                       </p>
@@ -213,8 +222,8 @@ export default function Home() {
 
           {/* skills section */}
           <Element name="skill">
-            <div className=" md:h-[40em] w-full bg-[#2E0249] md:px-32 md:py-10 overflow-hidden ">
-              <div className="md:border w-full h-full rounded-lg">
+            <div className=" md:h-[40em] w-full bg-[#2E0249] md:px-32 md:py-10 overflow-hidden sm:pt-0 pt-10">
+              <div className="border w-full h-full rounded-lg">
                 <Tab.Group>
                   <div className=" grid grid-cols-12 h-full">
                     <div className=" col-span-1 h-full w-full grid place-content-center">
@@ -226,7 +235,7 @@ export default function Home() {
                     <Tab.Panels className={"col-span-10 px-20"}>
                       {/* panel frontend */}
                       <Tab.Panel className={"w-full h-full text-white pt-4"}>
-                        <h1 className=" text-5xl text-center text-yellow-500">
+                        <h1 className="text-3xl sm:text-5xl text-center text-yellow-500">
                           FRONTEND
                         </h1>
                         <div className="md:mt-[5em]">
@@ -254,7 +263,7 @@ export default function Home() {
 
                       {/* panel Design */}
                       <Tab.Panel>
-                        <h1 className=" text-5xl text-center text-yellow-500 mt-5">
+                        <h1 className="text-3xl sm:text-5xl text-center text-yellow-500 mt-5">
                           DESIGN
                         </h1>
                         <div className=" mt-[20%]">
@@ -321,7 +330,7 @@ export default function Home() {
           </Element>
           {/* Qualification section */}
           <Element name="qualification">
-            <div className=" h-fit bg-[#2E0249] py-14 font-bold relative overflow-hidden md:px-0 px-20">
+            <div className=" h-fit bg-[#2E0249] py-14 font-bold relative overflow-hidden md:px-0 sm:px-20">
               <h1 className=" text-white text-5xl text-center">
                 QUALIFICATION
               </h1>
@@ -329,7 +338,7 @@ export default function Home() {
                 My Study Journey
               </p>
 
-              <div className=" w-full mt-10">
+              <div className=" w-full mt-10 px-10 sm:px-0">
                 <div className="md:w-[40%] w-full  md:m-auto mt-7 relative flex h-full">
                   <div className=" md:w-[50%] w-full ">
                     <motion.div variants={upDownAnimation} animate="visible">
