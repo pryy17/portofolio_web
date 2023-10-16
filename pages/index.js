@@ -332,7 +332,7 @@ export default function Home() {
           <Element name="qualification">
             <div className=" h-fit bg-[#2E0249] py-14 font-bold relative overflow-hidden md:px-0 sm:px-20">
               <h1 className=" text-white text-5xl text-center">
-                QUALIFICATION
+                QUALIFICATION & CAREER
               </h1>
               <p className=" text-yellow-300 text-lg text-center ">
                 My Study Journey
@@ -400,6 +400,19 @@ export default function Home() {
                         </div>
                       </div>
                     </motion.div>
+                  </div>
+                </div>
+
+                <div className="md:w-[40%] w-full  md:m-auto mt-7 relative flex h-full mb-10">
+                  <div className=" md:w-[50%] w-full ">
+                    <motion.div variants={upDownAnimation} animate="visible">
+                      <div className=" text-center grid place-content-center rounded-lg text-2xl bg-white text-black border w-full md:w-60 h-28 before:content-[''] before:w-8 before:h-8 before:bg-white md:before:absolute before:rotate-45 before:left-56 before:top-10 md:after:left-[20rem] after:left-[19rem] after:rounded-full after:top-9 md:after:w-10 md:after:h-10 md:after:absolute after:z-20 after:content-['']">
+                        Telkom Indonesia - frontend web Intern
+                      </div>
+                    </motion.div>
+                  </div>
+                  <div>
+                    <div className="border-r-8 h-full hidden md:block"></div>
                   </div>
                 </div>
               </div>
