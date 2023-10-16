@@ -52,7 +52,7 @@ export default function TabsProject({ sliderSettings }) {
                         className="object-bottom w-full h-full"
                       />
                     </div>
-                    <div className=" w-full my-10 h-fit md:mt-[18em]">
+                    <div className=" w-full h-fit md:mt-[9em]">
                       <Slider {...sliderSettings}>
                         {item.stack.map((item, index) => (
                           <div key={index}>
