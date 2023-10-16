@@ -407,7 +407,7 @@ export default function Home() {
           </Element>
           {/* projects section */}
           <Element name="project">
-            <div className=" h-[100vh] bg-[#2E0249]">
+            <div className=" min-h-[100vh] bg-[#2E0249]">
               <h1 className=" text-white text-5xl text-center font-bold">
                 PROJECTS
               </h1>

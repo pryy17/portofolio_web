@@ -62,6 +62,7 @@ export const projects = [
     name: "Foodys",
     desc: "sebuah website food order di lengkapi dengan fitur login list makanan, detail makanan, fitur keranjang dan simulasi payment website ini di dukung oleh teknologi graphql untuk database nya.",
     img: "foodys.png",
+    github: "https://github.com/pryy17/React_mini-project",
     link: "https://app-foodys.netlify.app",
     stack: [
       {
@@ -128,6 +129,7 @@ export const projects = [
     name: "SPBE APP",
     desc: "sebuah prototipe website untuk memandu asesor internal dalam mengevaluasi sistem pemerintahan SPBE di setiap lembaga daerah",
     img: "spbe.png",
+    github: "https://panduan-spbe.vercel.app/",
     link: "https://panduan-spbe.vercel.app",
     stack: [
       {
@@ -179,5 +181,96 @@ export const projects = [
           "https://res.cloudinary.com/practicaldev/image/fetch/s--oGEXGSkH--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/iu70z7h4vp482ptvsw3d.png",
       },
     ],
-  }
+  },
+  {
+    id: 4,
+    name: "SIM PPOB",
+    desc: "aplikasi untuk membayar tagihan",
+    img: "simppob.png",
+    github: "https://github.com/pryy17/SIMSPPOB-priandydwihandika",
+    link: "https://simsppob-priandydwihandika.vercel.app/",
+    stack: [
+      {
+        name: "React",
+        image:
+          "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png",
+      },
+      {
+        name: "HTML",
+        image: "https://cdn-icons-png.flaticon.com/512/732/732212.png",
+      },
+      {
+        name: "CSS",
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/800px-CSS3_logo.svg.png",
+      },
+      {
+        name: "Javascript",
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+      },
+      {
+        name: "Tailwind",
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2048px-Tailwind_CSS_Logo.svg.png",
+      },
+      {
+        name: "GIT",
+        image: "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png",
+      },
+      {
+        name: "GITHUB",
+        image:
+          "https://i.pinimg.com/originals/30/b1/50/30b150cd489202db131009ac9540cec0.png",
+      },
+      {
+        name: "Axios",
+        image:
+          "https://res.cloudinary.com/practicaldev/image/fetch/s--oGEXGSkH--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/iu70z7h4vp482ptvsw3d.png",
+      },
+    ],
+  },
+  {
+    id: 5,
+    name: "Simple Web Restaurant Order With Typescript",
+    desc: "aplikasi untuk membuat pesanan",
+    img: "weborder.png",
+    github: "https://github.com/pryy17/learning-typescript",
+    link: "https://learning-typescript-eta.vercel.app/",
+    stack: [
+      {
+        name: "React",
+        image:
+          "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png",
+      },
+      {
+        name: "HTML",
+        image: "https://cdn-icons-png.flaticon.com/512/732/732212.png",
+      },
+      {
+        name: "CSS",
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/800px-CSS3_logo.svg.png",
+      },
+      {
+        name: "Tailwind",
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2048px-Tailwind_CSS_Logo.svg.png",
+      },
+      {
+        name: "GIT",
+        image: "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png",
+      },
+      {
+        name: "GITHUB",
+        image:
+          "https://i.pinimg.com/originals/30/b1/50/30b150cd489202db131009ac9540cec0.png",
+      },
+      {
+        name: "TypeScript",
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg",
+      },
+    ],
+  },
 ];
