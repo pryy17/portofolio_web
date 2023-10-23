@@ -278,6 +278,24 @@ export default function Home() {
                           </Slider>
                         </div>
                       </Tab.Panel>
+
+                      {/* panel softskill */}
+                      <Tab.Panel>
+                        <h1 className="text-3xl sm:text-5xl text-center text-yellow-500 mt-5">
+                          SOFT SKILLS
+                        </h1>
+                        <div className=" mt-[20%]">
+                          <Slider {...settings}>
+                            {data.softSkills?.map((item, index) => (
+                              <div key={index}>
+                                <div className=" w-28 h-28 overflow-hidden">
+                                  <img src={item.image} />
+                                </div>
+                              </div>
+                            ))}
+                          </Slider>
+                        </div>
+                      </Tab.Panel>
                     </Tab.Panels>
 
                     <Tab.List

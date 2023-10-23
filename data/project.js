@@ -63,7 +63,7 @@ export const projects = [
     desc: "sebuah website food order di lengkapi dengan fitur login list makanan, detail makanan, fitur keranjang dan simulasi payment website ini di dukung oleh teknologi graphql untuk database nya.",
     img: "foodys.png",
     github: "https://github.com/pryy17/React_mini-project",
-    link: "https://app-foodys.netlify.app",
+    link: "https://react-mini-project-p9oc.vercel.app/",
     stack: [
       {
         name: "React",
@@ -256,6 +256,82 @@ export const projects = [
         name: "Tailwind",
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2048px-Tailwind_CSS_Logo.svg.png",
+      },
+      {
+        name: "GIT",
+        image: "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png",
+      },
+      {
+        name: "GITHUB",
+        image:
+          "https://i.pinimg.com/originals/30/b1/50/30b150cd489202db131009ac9540cec0.png",
+      },
+      {
+        name: "TypeScript",
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg",
+      },
+    ],
+  },
+  {
+    id: 6,
+    name: "Simple animation food change",
+    desc: "aplikasi untuk membuat pesanan",
+    img: "food-animate.png",
+    github: "https://github.com/pryy17/lod-priandy-test",
+    link: "https://lod-priandy-test.vercel.app/",
+    stack: [
+      {
+        name: "React",
+        image:
+          "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png",
+      },
+      {
+        name: "HTML",
+        image: "https://cdn-icons-png.flaticon.com/512/732/732212.png",
+      },
+      {
+        name: "CSS",
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/800px-CSS3_logo.svg.png",
+      },
+      {
+        name: "Tailwind",
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2048px-Tailwind_CSS_Logo.svg.png",
+      },
+      {
+        name: "GIT",
+        image: "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png",
+      },
+      {
+        name: "GITHUB",
+        image:
+          "https://i.pinimg.com/originals/30/b1/50/30b150cd489202db131009ac9540cec0.png",
+      },
+      {
+        name: "TypeScript",
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg",
+      },
+    ],
+  },
+  {
+    id: 7,
+    name: "Portofolio web with pure HTML,CSS,JS",
+    desc: "portofolio web dengan html,css,js murni tanpa library",
+    img: "purehtml.png",
+    github: "https://github.com/pryy17/pryy17.github.io",
+    link: "https://pryy17.github.io/",
+    stack: [
+      {
+        name: "HTML",
+        image: "https://cdn-icons-png.flaticon.com/512/732/732212.png",
+      },
+      {
+        name: "CSS",
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/800px-CSS3_logo.svg.png",
       },
       {
         name: "GIT",

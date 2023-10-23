@@ -86,28 +86,66 @@ export const data = {
   designSkills: [
     {
       name: "Figma",
-      image: "https://i.pinimg.com/originals/5e/fd/4e/5efd4e04173b52c1c4d1f459679bf7fb.png",
+      image:
+        "https://i.pinimg.com/originals/5e/fd/4e/5efd4e04173b52c1c4d1f459679bf7fb.png",
     },
     {
-        name: "Canva",
-        image: "https://cdn.icon-icons.com/icons2/2699/PNG/512/canva_logo_icon_168459.png",
-      },
-      {
-        name: "Photoshop",
-        image: "https://www.pngplay.com/wp-content/uploads/12/Photoshop-Logo-PNG-Background.png",
-      },
-      {
-        name: "corel draw",
-        image: "https://seeklogo.com/images/C/coreldraw-x7-logo-747B0DC253-seeklogo.com.png",
-      },
-      {
-        name: "Adobe XD",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Adobe_XD_CC_icon.svg/1200px-Adobe_XD_CC_icon.svg.png",
-      },
-      {
-        name: "flowchart",
-        image: "https://thumbs.dreamstime.com/b/flowchart-linear-icon-modern-outline-flowchart-logo-concept-flowchart-linear-icon-modern-outline-flowchart-logo-concept-133525861.jpg",
-      },    
+      name: "Canva",
+      image:
+        "https://cdn.icon-icons.com/icons2/2699/PNG/512/canva_logo_icon_168459.png",
+    },
+    {
+      name: "Photoshop",
+      image:
+        "https://www.pngplay.com/wp-content/uploads/12/Photoshop-Logo-PNG-Background.png",
+    },
+    {
+      name: "corel draw",
+      image:
+        "https://seeklogo.com/images/C/coreldraw-x7-logo-747B0DC253-seeklogo.com.png",
+    },
+    {
+      name: "Adobe XD",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Adobe_XD_CC_icon.svg/1200px-Adobe_XD_CC_icon.svg.png",
+    },
+    {
+      name: "flowchart",
+      image:
+        "https://thumbs.dreamstime.com/b/flowchart-linear-icon-modern-outline-flowchart-logo-concept-flowchart-linear-icon-modern-outline-flowchart-logo-concept-133525861.jpg",
+    },
+  ],
+  softSkills: [
+    {
+      name: "comunication",
+      image:
+        "https://t3.ftcdn.net/jpg/03/91/37/12/360_F_391371227_OOPKuywmf6dqwOTsw4Dfu0iDejLKyZZC.jpg",
+    },
+    {
+      name: "team work",
+      image:
+        "https://t3.ftcdn.net/jpg/03/91/37/12/360_F_391371227_OOPKuywmf6dqwOTsw4Dfu0iDejLKyZZC.jpg",
+    },
+    {
+      name: "team work",
+      image:
+        "https://t3.ftcdn.net/jpg/03/91/37/12/360_F_391371227_OOPKuywmf6dqwOTsw4Dfu0iDejLKyZZC.jpg",
+    },
+    {
+      name: "team work",
+      image:
+        "https://t3.ftcdn.net/jpg/03/91/37/12/360_F_391371227_OOPKuywmf6dqwOTsw4Dfu0iDejLKyZZC.jpg",
+    },
+    {
+      name: "team work",
+      image:
+        "https://t3.ftcdn.net/jpg/03/91/37/12/360_F_391371227_OOPKuywmf6dqwOTsw4Dfu0iDejLKyZZC.jpg",
+    },
+    {
+      name: "team work",
+      image:
+        "https://t3.ftcdn.net/jpg/03/91/37/12/360_F_391371227_OOPKuywmf6dqwOTsw4Dfu0iDejLKyZZC.jpg",
+    },
   ],
 };
 
