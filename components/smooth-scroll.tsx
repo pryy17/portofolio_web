@@ -1,13 +1,24 @@
 'use client'
 
 import Lenis from '@studio-freight/lenis'
-import React, { useEffect, PropsWithChildren, useRef } from 'react'
+import React, { useEffect, PropsWithChildren, useRef, Suspense } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
+
+function SmoothScrollHandler({ lenisRef }: { lenisRef: React.MutableRefObject<Lenis | null> }) {
+    const pathname = usePathname()
+    const searchParams = useSearchParams()
+
+    useEffect(() => {
+        if (lenisRef.current) {
+            lenisRef.current.scrollTo(0, { immediate: true })
+        }
+    }, [pathname, searchParams, lenisRef])
+
+    return null
+}
 
 export default function SmoothScrollProvider({ children }: PropsWithChildren) {
     const lenisRef = useRef<Lenis | null>(null)
-    const pathname = usePathname()
-    const searchParams = useSearchParams()
 
     useEffect(() => {
         const lenis = new Lenis({
@@ -33,11 +44,12 @@ export default function SmoothScrollProvider({ children }: PropsWithChildren) {
         }
     }, [])
 
-    useEffect(() => {
-        if (lenisRef.current) {
-            lenisRef.current.scrollTo(0, { immediate: true })
-        }
-    }, [pathname, searchParams])
-
-    return children
+    return (
+        <React.Fragment>
+            <Suspense fallback={null}>
+                <SmoothScrollHandler lenisRef={lenisRef} />
+            </Suspense>
+            {children}
+        </React.Fragment>
+    )
 }
