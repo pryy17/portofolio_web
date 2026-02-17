@@ -1,8 +1,6 @@
 "use client"
 
-import type React from "react"
-
-import { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -11,6 +9,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
 import { Mail, Phone, MapPin, Send, Mic, MicOff } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
+import { useRouter } from "next/navigation"
+import { useInView } from "react-intersection-observer"
 
 export default function ContactSection() {
   const [isRecording, setIsRecording] = useState(false)
@@ -108,9 +108,8 @@ export default function ContactSection() {
                       variant="ghost"
                       size="sm"
                       onClick={toggleRecording}
-                      className={`absolute top-2 right-2 ${
-                        isRecording ? "text-red-400 animate-pulse" : "text-white/60"
-                      }`}
+                      className={`absolute top-2 right-2 ${isRecording ? "text-red-400 animate-pulse" : "text-white/60"
+                        }`}
                     >
                       {isRecording ? <Mic className="h-4 w-4" /> : <MicOff className="h-4 w-4" />}
                     </Button>
@@ -202,7 +201,7 @@ export default function ContactSection() {
                 <div className="grid grid-cols-2 gap-4">
                   {[
                     { name: "GitHub", icon: "🐙", color: "hover:text-gray-400", link: "https://github.com/pryy17" },
-                    { name: "LinkedIn", icon: "💼", color: "hover:text-blue-400", link: "https://www.linkedin.com/in/priandy-dwi-handika/"},
+                    { name: "LinkedIn", icon: "💼", color: "hover:text-blue-400", link: "https://www.linkedin.com/in/priandy-dwi-handika/" },
                   ].map((social) => (
                     <motion.a
                       key={social.name}
@@ -226,7 +225,7 @@ export default function ContactSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="mt-20 pt-8 border-t border-white/10 text-center"
+          className="mt-20 pt-8 border-t border-white/10 text-center relative"
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="text-white/60">© 2025 Priandy Dwi Handika. Crafted with ❤️.</div>
@@ -236,8 +235,35 @@ export default function ContactSection() {
               <span className="text-white/40 text-sm">Powered by Next.js & Three.js</span>
             </div>
           </div>
+
+          {/* Scroll Sentinel for Redirect */}
+          <div
+            className="absolute bottom-0 w-full h-1"
+            onMouseEnter={() => {
+              // Preload agency page
+              // router.prefetch('/agency') 
+            }}
+          >
+            <RedirectSentinel />
+          </div>
         </motion.footer>
       </div>
     </section>
   )
+}
+
+function RedirectSentinel() {
+  const router = useRouter()
+  const { ref, inView } = useInView({
+    threshold: 1,
+    triggerOnce: true,
+  })
+
+  useEffect(() => {
+    if (inView) {
+      router.push('/agency')
+    }
+  }, [inView, router])
+
+  return <div ref={ref} className="w-full h-full" />
 }
