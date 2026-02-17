@@ -5,6 +5,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import SmoothScrollProvider from "@/components/smooth-scroll"
+import { HandProvider } from "@/components/providers/hand-provider"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const sora = Sora({ subsets: ["latin"], variable: "--font-sora" })
@@ -32,7 +33,9 @@ export default function RootLayout({
       <body className={`${inter.variable} ${sora.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <SmoothScrollProvider>
-            {children}
+            <HandProvider>
+              {children}
+            </HandProvider>
             <Toaster />
           </SmoothScrollProvider>
         </ThemeProvider>

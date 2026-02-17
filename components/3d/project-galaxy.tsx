@@ -24,7 +24,7 @@ const projectsData = [
   },
   {
     id: 2,
-    name: "E-commerce Platform/ERP system",
+    name: "E-commerce Platform",
     category: "frontend",
     position: [-2, -1, 1],
     color: "#ff00ff",

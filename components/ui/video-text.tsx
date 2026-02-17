@@ -118,14 +118,26 @@ export function VideoText({
         onVideoError?.(event.nativeEvent);
     }, [onVideoError]);
 
-    // Attempt to play video on mount (for browsers that block autoplay)
+    // Check if video is already ready or if autoplay works
     useEffect(() => {
-        if (videoRef.current && autoPlay) {
-            videoRef.current.play().catch(error => {
-                console.warn('Autoplay was prevented:', error);
-            });
+        if (videoRef.current) {
+            if (videoRef.current.readyState >= 3) {
+                handleVideoLoad();
+            }
+            if (autoPlay) {
+                videoRef.current.play().catch(error => {
+                    console.warn('Autoplay was prevented:', error);
+                });
+            }
         }
-    }, [autoPlay]);
+
+        // Timeout fallback: if video doesn't load in 3s, remove loading indicator
+        const timeout = setTimeout(() => {
+            setIsVideoLoaded(true);
+        }, 3000);
+
+        return () => clearTimeout(timeout);
+    }, [autoPlay, handleVideoLoad]);
 
     return (
         <Component className={cn("relative w-full h-full overflow-hidden", className)}>
@@ -158,6 +170,8 @@ export function VideoText({
                     playsInline
                     poster={poster}
                     onLoadedData={handleVideoLoad}
+                    onCanPlay={handleVideoLoad}
+                    onLoadedMetadata={handleVideoLoad}
                     onError={handleVideoError}
                 >
                     {/* Primary source */}
