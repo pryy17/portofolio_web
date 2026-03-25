@@ -6,6 +6,7 @@ import SkillsSection from "@/components/sections/skills-section"
 import BlogSection from "@/components/sections/blog-section"
 import ContactSection from "@/components/sections/contact-section"
 import OpeningSection from "@/components/sections/opening-section"
+import VideoOverviewSection from "@/components/sections/video-overview-section"
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <ProjectsSection />
+      <VideoOverviewSection />
       <SkillsSection />
       {/* <BlogSection /> */}
       <ContactSection />
