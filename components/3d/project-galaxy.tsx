@@ -1,8 +1,8 @@
 "use client"
 
-import { useRef, useState, useEffect } from "react"
+import { useRef, useState, useEffect, Suspense } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
-import { OrbitControls, Text } from "@react-three/drei"
+import { OrbitControls, Text, Billboard, Image } from "@react-three/drei"
 import { motion, AnimatePresence } from "framer-motion"
 import type * as THREE from "three"
 import { Button } from "@/components/ui/button"
@@ -14,105 +14,142 @@ const projectsData = [
     id: 1,
     name: "Edutiv",
     category: "frontend",
-    position: [2, 1, 0],
-    color: "#00ffff",
+    position: [0, 3, 0],
+    color: "#FF5733",
     description: "sebuah website learning management system yang menggunakan berbagai macam implementasi teknologi di dalamnya di aman user dapat melihat video, auth, memberi rating, claim sertifikat, completed video, dll.",
     technologies: ["React", "Tailwind", "redux"],
     github: "https://github.com/edutiv/frontend-web",
     demo: "https://edutiv-web.vercel.app/",
-    image: "https://portofolio-web-chi.vercel.app/assets/edutiv.png",
+    image: "https://portofolio-web-git-main-pryy17.vercel.app/assets/edutiv.png",
   },
   {
     id: 2,
-    name: "E-commerce Platform",
+    name: "AI ERP Platform",
     category: "frontend",
-    position: [-2, -1, 1],
-    color: "#ff00ff",
+    position: [-1.5, 2.2, 1.3],
+    color: "#33FF57",
     description: "Modern e-commerce platform with advanced filtering and payment integration.",
     technologies: ["Next.js", "Strapi", "open AI", "PostgreSQL", "vercel Chat Bot"],
     github: "https://github.com/pryy17/AI-commerce",
     demo: "https://demo.com",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/erp.png",
   },
   {
     id: 3,
     name: "Foodys",
     category: "backend",
-    position: [0, 2, -2],
-    color: "#ffff00",
+    position: [0.2, 1.5, -2.6],
+    color: "#3357FF",
     description: "sebuah website food order di lengkapi dengan fitur login list makanan, detail makanan, fitur keranjang dan simulasi payment website ini di dukung oleh teknologi graphql untuk database nya.",
     technologies: ["Node.js", "Redis", "Docker", "AWS"],
     github: "https://github.com/pryy17/React_mini-project",
     demo: "https://react-mini-project-p9oc.vercel.app/",
-    image: "https://portofolio-web-chi.vercel.app/assets/foodys.png",
+    image: "https://portofolio-web-git-main-pryy17.vercel.app/assets/foodys.png",
   },
   {
     id: 4,
     name: "SPBE APP",
     category: "frontend",
-    position: [-1, 0, 2],
-    color: "#00ff00",
+    position: [1.8, 0.8, 2.3],
+    color: "#F033FF",
     description: "sebuah prototipe website untuk memandu asesor internal dalam mengevaluasi sistem pemerintahan SPBE di setiap lembaga daerah",
     technologies: ["React", "TypeScript", "Strapi"],
     github: "https://panduan-spbe.vercel.app/",
     demo: "https://panduan-spbe.vercel.app/",
-    image: "https://portofolio-web-chi.vercel.app/assets/spbe.png",
+    image: "https://portofolio-web-git-main-pryy17.vercel.app/assets/spbe.png",
   },
   {
-    id: 4,
+    id: 5,
     name: "Movies List",
     category: "frontend",
-    position: [2, -0.5, 2],
-    color: "#986012ff",
+    position: [-2.9, 0, -0.5],
+    color: "#33FFF0",
     description: "website menampilkan api dari film sekarang bisa menambahkan wistlist dan terdapat fitu pencarian",
     technologies: ["React", "TypeScript", "open API"],
     github: "https://github.com/pryy17/movies-elemes",
     demo: "https://movies-elemes.vercel.app/",
     image: "https://res.cloudinary.com/dsgz61dvy/image/upload/v1766988248/Screenshot_2025-12-29_093022_khrafa.png",
   },
+  {
+    id: 6,
+    name: "restaurant booking",
+    category: "frontend",
+    position: [2.4, -0.8, -1.6],
+    color: "#FFD433",
+    description: "sebuah website untuk memesan makanan di restoran",
+    technologies: ["React", "TypeScript", "open API"],
+    github: "https://github.com/pryy17/restaurant-booking",
+    demo: "https://hpkjvhj5oc5io.ok.kimi.link",
+    image: "/restaurant.png",
+  },
+  {
+    id: 7,
+    name: "AI ecommerce",
+    category: "frontend",
+    position: [-0.7, -1.5, 2.5],
+    color: "#FF336E",
+    description: "sebuah website ecommerce yang di lengkapi dengan fitur AI untuk membantu user dalam mencari produk yang sesuai dengan kebutuhan mereka",
+    technologies: ["React", "TypeScript", "open API"],
+    github: "",
+    demo: "",
+    image: "/ecommerce.png",
+  },
+  {
+    id: 8,
+    name: "digital product",
+    category: "frontend",
+    position: [-0.9, -2.2, -1.8],
+    color: "#A533FF",
+    description: "sebuah website untuk menjual produk digital",
+    technologies: ["React", "TypeScript", "open API"],
+    github: "",
+    demo: "https://zgmq7gclmqonq.ok.kimi.link",
+    image: "/digital.png",
+  },
+  {
+    id: 9,
+    name: "company profile",
+    category: "frontend",
+    position: [0, -3, 0],
+    color: "#33FF99",
+    description: "sebuah website company profile untuk perusahaan",
+    technologies: ["React", "TypeScript", "open API"],
+    github: "",
+    demo: "https://3bltmhdcta5ac.ok.kimi.link",
+    image: "/company.png",
+  },
 ]
 
 function ProjectPlanet({ project, onClick, isSelected }: any) {
-  const meshRef = useRef<THREE.Mesh>(null)
+  const groupRef = useRef<THREE.Group>(null)
 
   useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.3
-      meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime) * 0.05
+    if (groupRef.current) {
+      groupRef.current.position.y = project.position[1] + Math.sin(state.clock.elapsedTime * 2 + project.id) * 0.05
     }
   })
 
   return (
-    <group position={project.position}>
-      <mesh
-        ref={meshRef}
-        onClick={onClick}
-        onPointerOver={(e) => {
-          e.stopPropagation()
-          document.body.style.cursor = "pointer"
-        }}
-        onPointerOut={() => {
-          document.body.style.cursor = "auto"
-        }}
-      >
-        <sphereGeometry args={[0.4, 16, 16]} />
-        <meshStandardMaterial
-          color={project.color}
-          emissive={project.color}
-          emissiveIntensity={isSelected ? 0.2 : 0.05}
+    <group ref={groupRef} position={project.position}>
+      <Billboard>
+        <Image
+          url={project.image || "/placeholder.svg"}
+          scale={[1.6, 1]}
           transparent
-          opacity={0.7}
+          opacity={isSelected ? 1 : 0.8}
+          onClick={onClick}
+          onPointerOver={(e) => {
+            e.stopPropagation()
+            document.body.style.cursor = "pointer"
+          }}
+          onPointerOut={() => {
+            document.body.style.cursor = "auto"
+          }}
         />
-      </mesh>
-
-      <mesh rotation={[Math.PI / 2, 0, 0]}>
-        <ringGeometry args={[0.5, 0.6, 16]} />
-        <meshBasicMaterial color={project.color} transparent opacity={0.2} />
-      </mesh>
-
-      <Text position={[0, -0.8, 0]} fontSize={0.15} color="white" anchorX="center" anchorY="middle">
-        {project.name}
-      </Text>
+        <Text position={[0, -0.7, 0]} fontSize={0.15} color="white" anchorX="center" anchorY="middle">
+          {project.name}
+        </Text>
+      </Billboard>
     </group>
   )
 }
@@ -194,14 +231,16 @@ export default function ProjectGalaxy({ selectedFilter }: ProjectGalaxyProps) {
           <pointLight position={[5, 5, 5]} intensity={0.8} />
           <pointLight position={[-5, -5, -5]} intensity={0.4} color="#ff00ff" />
 
-          {filteredProjects.map((project) => (
-            <ProjectPlanet
-              key={project.id}
-              project={project}
-              isSelected={selectedProject?.id === project.id}
-              onClick={() => setSelectedProject(project)}
-            />
-          ))}
+          <Suspense fallback={null}>
+            {filteredProjects.map((project) => (
+              <ProjectPlanet
+                key={project.id}
+                project={project}
+                isSelected={selectedProject?.id === project.id}
+                onClick={() => setSelectedProject(project)}
+              />
+            ))}
+          </Suspense>
 
           <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} maxDistance={10} minDistance={3} />
         </Canvas>
@@ -224,14 +263,14 @@ export default function ProjectGalaxy({ selectedFilter }: ProjectGalaxyProps) {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="glass-morphism rounded-lg p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
+              className="glass-morphism rounded-lg p-6 max-w-5xl w-full max-h-[100vh] overflow-y-auto"
             >
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <img
                     src={selectedProject.image || "/placeholder.svg?height=200&width=300"}
                     alt={selectedProject.name}
-                    className="w-full h-48 object-cover rounded-lg mb-4"
+                    className="w-full h-60 object-cover rounded-lg mb-4"
                   />
                 </div>
 
