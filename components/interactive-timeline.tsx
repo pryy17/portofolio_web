@@ -231,13 +231,13 @@ export default function InteractiveTimeline() {
         {/* Content */}
         <div className="relative z-10 py-16">
           {/* Timeline Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-cyan-400 to-purple-400 rounded-full" />
+          <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-cyan-400 to-purple-400 rounded-full" />
 
           {/* Scroll Progress Glow */}
           <motion.img
             src="/astronot.png"
             alt="scroll progress"
-            className="absolute left-1/2 w-48 h-48 rounded-full shadow-lg pointer-events-none"
+            className="absolute left-8 md:left-1/2 w-24 h-24 md:w-48 md:h-48 rounded-full shadow-lg pointer-events-none"
             style={{
               top: `${smoothProgress.current * 100}%`,
               transform: "translate(-50%, -50%)",
@@ -256,7 +256,7 @@ export default function InteractiveTimeline() {
             }}
           />
 
-          <div className="space-y-12 container">
+          <div className="space-y-12 container px-4">
             {timelineData.map((item, index) => (
 
               <motion.div
@@ -264,11 +264,11 @@ export default function InteractiveTimeline() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2, duration: 0.6 }}
-                className={`flex items-center ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
+                className={`flex items-start md:items-center relative ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
               >
                 {/* Content Card */}
 
-                <div className={`w-5/12 ${index % 2 === 0 ? "pr-8" : "pl-8"}`}>
+                <div className={`w-full md:w-5/12 ${index % 2 === 0 ? "md:pr-8 pl-12 md:pl-0" : "md:pl-8 pl-12"}`}>
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     onClick={() => setSelectedItem(selectedItem === item.id ? null : item.id)}
@@ -310,7 +310,7 @@ export default function InteractiveTimeline() {
                 </div>
 
                 {/* Timeline Node */}
-                <div className="relative z-10">
+                <div className="absolute left-8 md:relative md:left-0 transform -translate-x-1/2 z-10 mt-6 md:mt-0">
                   <motion.div
                     whileHover={{ scale: 1.2 }}
                     className="w-6 h-6 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full border-4 border-black shadow-lg"
@@ -318,7 +318,7 @@ export default function InteractiveTimeline() {
                 </div>
 
                 {/* Spacer */}
-                <div className="w-5/12" />
+                <div className="hidden md:block w-5/12" />
               </motion.div>
             ))}
           </div>
