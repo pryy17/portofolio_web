@@ -118,6 +118,18 @@ const projectsData = [
     demo: "https://3bltmhdcta5ac.ok.kimi.link",
     image: "/company.png",
   },
+  {
+    id: 10,
+    name: "hospital landing page",
+    category: "frontend",
+    position: [2, -2, 2],
+    color: "#33FF99",
+    description: "sebuah website landing page untuk rumah sakit",
+    technologies: ["React", "TypeScript", "open API"],
+    github: "",
+    demo: "https://p5jjc7afce22k.ok.kimi.link/",
+    image: "https://res.cloudinary.com/dsgz61dvy/image/upload/v1774925814/Screenshot_15_gzgndn.png",
+  },
 ]
 
 function ProjectPlanet({ project, onClick, isSelected }: any) {
