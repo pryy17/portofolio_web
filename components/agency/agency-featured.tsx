@@ -6,31 +6,73 @@ import { ArrowUpRight } from "lucide-react"
 
 const projects = [
     {
-        title: "Portofolio Website",
-        category: "Brand Design",
-        year: "2024",
-        image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=2574&auto=format&fit=crop",
+        title: "Edutiv",
+        category: "frontend",
+        year: "2023",
+        image: "https://portofolio-web-git-main-pryy17.vercel.app/assets/edutiv.png",
         size: "normal"
     },
     {
-        title: "UMKM service",
-        category: "web SASS",
-        year: "2023",
-        image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=2574&auto=format&fit=crop",
+        title: "AI ERP Platform",
+        category: "frontend",
+        year: "2024",
+        image: "/erp.png",
         size: "wide"
     },
     {
-        title: "E-Commerce",
-        category: "Web Solution",
-        year: "2024",
-        image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2516&auto=format&fit=crop",
+        title: "Foodys",
+        category: "backend",
+        year: "2023",
+        image: "https://portofolio-web-git-main-pryy17.vercel.app/assets/foodys.png",
         size: "normal"
     },
     {
-        title: "web solution",
-        category: "Web Development",
-        year: "2023",
-        image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=2670&auto=format&fit=crop",
+        title: "SPBE APP",
+        category: "frontend",
+        year: "2024",
+        image: "https://portofolio-web-git-main-pryy17.vercel.app/assets/spbe.png",
+        size: "normal"
+    },
+    {
+        title: "Movies List",
+        category: "frontend",
+        year: "2025",
+        image: "https://res.cloudinary.com/dsgz61dvy/image/upload/v1766988248/Screenshot_2025-12-29_093022_khrafa.png",
+        size: "wide"
+    },
+    {
+        title: "restaurant booking",
+        category: "frontend",
+        year: "2024",
+        image: "/restaurant.png",
+        size: "normal"
+    },
+    {
+        title: "AI ecommerce",
+        category: "frontend",
+        year: "2024",
+        image: "/ecommerce.png",
+        size: "normal"
+    },
+    {
+        title: "digital product",
+        category: "frontend",
+        year: "2024",
+        image: "/digital.png",
+        size: "wide"
+    },
+    {
+        title: "company profile",
+        category: "frontend",
+        year: "2024",
+        image: "/company.png",
+        size: "normal"
+    },
+    {
+        title: "hospital landing page",
+        category: "frontend",
+        year: "2024",
+        image: "https://res.cloudinary.com/dsgz61dvy/image/upload/v1774925814/Screenshot_15_gzgndn.png",
         size: "normal"
     }
 ]
